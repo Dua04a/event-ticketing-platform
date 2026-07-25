@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #F2E9D8;
+  --color-card: #FAF5E8;
+  --color-ink: #2B2420;
+  --color-maroon: #7A2333;
+  --color-mustard: #D9A441;
+  --color-teal: #2F6F62;
+  --font-display: "Anton", sans-serif;
+  --font-body: "Work Sans", sans-serif;
+  --font-ticket: "Space Mono", monospace;
+}
+
+body {
+  background-color: var(--color-paper);
+}
+
+/* Arabic mode: swap fonts and kill letter-spacing that breaks Arabic letterforms */
+[dir="rtl"] {
+  --font-display: "Lalezar", sans-serif;
+  --font-body: "Almarai", sans-serif;
+  --font-ticket: "Almarai", sans-serif;
+}
+
+[dir="rtl"] .tracking-wide,
+[dir="rtl"] .tracking-wider,
+[dir="rtl"] .tracking-widest {
+  letter-spacing: normal;
+}
+
+.ticket-notch::before,
+.ticket-notch::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: var(--color-paper);
+  border-radius: 9999px;
+  right: 90px;
+  transform: translateX(50%);
+  z-index: 10;
+}
+.ticket-notch::before { top: -9px; }
+.ticket-notch::after { bottom: -9px; }
+
+.ticket-notch-sm::before,
+.ticket-notch-sm::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--color-paper);
+  border-radius: 9999px;
+  right: 70px;
+  transform: translateX(50%);
+  z-index: 10;
+}
+.ticket-notch-sm::before { top: -8px; }
+.ticket-notch-sm::after { bottom: -8px; }
