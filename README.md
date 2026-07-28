@@ -12,6 +12,8 @@ The project was built to practice full-stack development with the MERN stack, go
 - Unique QR code generated for each ticket
 - Booking capacity is checked to prevent overbooking
 - English / Arabic toggle with proper RTL layout
+- Responsive user interface
+- Event management
 
 ---
 
