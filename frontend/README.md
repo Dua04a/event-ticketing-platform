@@ -16,6 +16,8 @@ Start the development server:
 npm run dev
 ```
 
+The frontend is available at `http://localhost:5175`.
+
 The app expects the backend at `http://localhost:5050/api` by default. To use a different backend URL, create a `.env` file in this folder and set:
 
 ```env
