@@ -7,7 +7,7 @@ function Navbar() {
   const { lang, toggleLang, t } = useLanguage();
 
   return (
-    <nav className="bg-card border-b-2 border-ink/10">
+    <nav className="site-nav bg-card border-b-2 border-ink/10">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <Link to="/" className="font-[family-name:var(--font-display)] text-2xl text-maroon tracking-wide">
           STAGEDOOR

@@ -65,7 +65,12 @@ cd backend
 npm install
 npm run dev
 ```
-4. Run the frontend:
+4. Run the frontend from the repository root:
+```bash
+npm run dev
+```
+
+Or run it directly from the frontend directory:
 ```bash
 cd frontend
 npm install
