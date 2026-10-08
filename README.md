@@ -6,7 +6,28 @@ The app supports English and Arabic, including right-to-left layout.
 
 ## Screenshot
 
-![StageDoor home page](https://github.com/user-attachments/assets/bf7cc373-d08c-4480-b932-c21314b31486)
+StageDoor home page
+<img width="2880" height="1622" alt="Pasted Graphic 6" src="https://github.com/user-attachments/assets/a9c5a446-0c26-497e-893f-f62b07ba1ff1" />
+
+
+Register page 
+<img width="2872" height="1620" alt="Pasted Graphic 2" src="https://github.com/user-attachments/assets/1dd1762e-ea7a-4955-8b90-7005e99aca6a" />
+
+
+Request to create event 
+<img width="2880" height="1622" alt="Pasted Graphic 3" src="https://github.com/user-attachments/assets/eb1aef65-5968-4112-a34f-621f0758caa8" />
+
+
+Ticket Booking (QR Code) 
+<img width="2880" height="1624" alt="Pasted Graphic 4" src="https://github.com/user-attachments/assets/cdefe561-ef26-4b58-9dca-18211a0f2b02" />
+
+
+My tickets page <img width="2880" height="1622" alt="Pasted Graphic 5" src="https://github.com/user-attachments/assets/814ab227-57b2-4b87-b453-2ff9d06d465a" />
+
+
+
+
+
 
 ## Features
 
