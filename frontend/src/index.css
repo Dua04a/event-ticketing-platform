@@ -1805,6 +1805,8 @@ a:not([class*="text-"]) {
 }
 
 .site-page:not(.home-page) > .flex.justify-center {
+  min-height: calc(100vh - 57px);
+  align-items: center;
   padding-block: 2.5rem;
 }
 
@@ -1863,4 +1865,6 @@ a:not([class*="text-"]) {
   .site-page:not(.home-page) > .flex.justify-center {
     padding-inline: 1rem;
   }
+
+  
 }

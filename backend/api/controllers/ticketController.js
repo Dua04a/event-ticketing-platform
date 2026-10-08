@@ -3,6 +3,25 @@ const Event = require('../models/Event');
 const QRCode = require('qrcode');
 const crypto = require('crypto');
 
+const createRainbowQrCode = (value) => {
+  const { modules } = QRCode.create(value);
+  const quietZone = 4;
+  const size = modules.size + quietZone * 2;
+  const paths = [];
+
+  for (let y = 0; y < modules.size; y += 1) {
+    for (let x = 0; x < modules.size; x += 1) {
+      if (modules.data[y * modules.size + x]) {
+        paths.push(`M${x + quietZone} ${y + quietZone}h1v1h-1z`);
+      }
+    }
+  }
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}"><rect width="${size}" height="${size}" fill="#fff"/><path fill="#b32683" shape-rendering="crispEdges" d="${paths.join('')}"/></svg>`;
+
+  return `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`;
+};
+
 // Book a ticket for an event
 const bookTicket = async (req, res) => {
   try {
@@ -20,7 +39,7 @@ const bookTicket = async (req, res) => {
 
     // Generate a unique code for this ticket
     const uniqueCode = crypto.randomBytes(16).toString('hex');
-    const qrCodeImage = await QRCode.toDataURL(uniqueCode);
+    const qrCodeImage = createRainbowQrCode(uniqueCode);
 
     const ticket = await Ticket.create({
       eventId: event._id,
