@@ -35,7 +35,7 @@ function Navbar() {
           ) : (
             <>
               <Link to="/login" className="text-ink/70 hover:text-ink">{t.nav.login}</Link>
-              <Link to="/register" className="bg-maroon text-paper px-3 py-1.5 rounded font-bold hover:bg-maroon/90">
+              <Link to="/register" className="bg-mustard text-paper px-3 py-1.5 rounded font-bold hover:bg-mustard/90">
                 {t.nav.register}
               </Link>
             </>

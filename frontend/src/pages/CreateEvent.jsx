@@ -16,7 +16,7 @@ function CreateEvent() {
 
   if (!user || user.role !== 'organizer') {
     return (
-      <div className="min-h-screen bg-paper">
+      <div className="site-page min-h-screen bg-paper">
         <Navbar />
         <div className="text-center py-20">
           <p className="text-ink/60">{t.createEvent.onlyOrganizers}</p>
@@ -47,14 +47,14 @@ function CreateEvent() {
   const labelClass = "block font-[family-name:var(--font-ticket)] text-[10px] uppercase tracking-widest text-ink/50 mb-1";
 
   return (
-    <div className="min-h-screen bg-paper font-[family-name:var(--font-body)]">
+    <div className="site-page min-h-screen bg-paper font-[family-name:var(--font-body)]">
       <Navbar />
       <div className="max-w-lg mx-auto px-6 py-12">
         <span className="font-[family-name:var(--font-ticket)] text-[10px] text-maroon uppercase tracking-widest">{t.createEvent.organizerDesk}</span>
         <h2 className="font-[family-name:var(--font-display)] text-3xl uppercase text-ink mb-6">{t.createEvent.title}</h2>
         <Link to="/" className="text-teal text-sm hover:underline">{t.createEvent.backToHome}</Link>
 
-        <form onSubmit={handleSubmit} className="space-y-4 mt-6 bg-card p-6 rounded-lg border border-ink/10 shadow-sm">
+        <form onSubmit={handleSubmit} className="glass-panel space-y-3 mt-5 bg-card p-6 rounded-lg border border-ink/10 shadow-sm">
           <div>
             <label className={labelClass}>{t.createEvent.eventTitle}</label>
             <input type="text" name="title" value={formData.title} onChange={handleChange} required className={inputClass} />

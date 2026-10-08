@@ -29,7 +29,7 @@ function BecomeOrganizer() {
 
   if (user?.role === 'organizer') {
     return (
-      <div className="min-h-screen bg-paper font-[family-name:var(--font-body)]">
+      <div className="site-page min-h-screen bg-paper font-[family-name:var(--font-body)]">
         <Navbar />
         <div className="text-center py-20">
           <p className="text-ink/60">{t.becomeOrganizer.alreadyOrganizer}</p>
@@ -40,7 +40,7 @@ function BecomeOrganizer() {
   }
 
   return (
-    <div className="min-h-screen bg-paper font-[family-name:var(--font-body)]">
+    <div className="site-page min-h-screen bg-paper font-[family-name:var(--font-body)]">
       <Navbar />
       <div className="max-w-md mx-auto px-6 py-16">
         <span className="font-[family-name:var(--font-ticket)] text-[10px] text-maroon uppercase tracking-widest">{t.becomeOrganizer.backstage}</span>
@@ -59,7 +59,7 @@ function BecomeOrganizer() {
         )}
 
         {status !== 'pending' && (
-          <form onSubmit={handleSubmit} className="space-y-4 bg-card p-6 rounded-lg border border-ink/10 shadow-sm">
+          <form onSubmit={handleSubmit} className="glass-panel space-y-3 bg-card p-6 rounded-lg border border-ink/10 shadow-sm">
             <div>
               <label className="block font-[family-name:var(--font-ticket)] text-[10px] uppercase tracking-widest text-ink/50 mb-1">
                 {t.becomeOrganizer.orgName}

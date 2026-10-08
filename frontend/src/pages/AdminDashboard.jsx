@@ -39,7 +39,7 @@ function AdminDashboard() {
 
   if (user?.role !== 'admin') {
     return (
-      <div className="min-h-screen bg-paper font-[family-name:var(--font-body)]">
+      <div className="site-page min-h-screen bg-paper font-[family-name:var(--font-body)]">
         <Navbar />
         <div className="text-center py-20">
           <p className="text-ink/60">{t.admin.adminsOnly}</p>
@@ -50,7 +50,7 @@ function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-paper font-[family-name:var(--font-body)]">
+    <div className="site-page min-h-screen bg-paper font-[family-name:var(--font-body)]">
       <Navbar />
       <div className="max-w-3xl mx-auto px-6 py-12">
         <span className="font-[family-name:var(--font-ticket)] text-[10px] text-maroon uppercase tracking-widest">{t.admin.panel}</span>
@@ -62,7 +62,7 @@ function AdminDashboard() {
 
         <div className="space-y-4">
           {requests.map((req) => (
-            <div key={req._id} className="bg-card border border-ink/10 rounded-lg p-5 flex justify-between items-center" dir="ltr">
+            <div key={req._id} className="glass-panel bg-card border border-ink/10 rounded-lg p-5 flex justify-between items-center" dir="ltr">
               <div>
                 <p className="font-bold text-ink">{req.name} <span className="text-ink/40 font-normal">({req.email})</span></p>
                 <p className="text-sm text-ink/60 mt-1">

@@ -25,7 +25,7 @@ function MyTickets() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-paper font-[family-name:var(--font-body)]">
+    <div className="site-page min-h-screen bg-paper font-[family-name:var(--font-body)]">
       <Navbar />
       <div className="max-w-3xl mx-auto px-6 py-12">
         <span className="font-[family-name:var(--font-ticket)] text-[10px] text-maroon uppercase tracking-widest">{t.myTickets.willCall}</span>
@@ -38,7 +38,7 @@ function MyTickets() {
 
         <div className="mt-8 space-y-4">
           {tickets.map((ticket) => (
-            <div key={ticket._id} dir="ltr" className="relative ticket-notch-sm bg-card rounded-lg shadow-sm flex overflow-hidden border border-ink/10">
+            <div key={ticket._id} dir="ltr" className="relative ticket-notch-sm glass-panel bg-card rounded-lg shadow-sm flex overflow-hidden border border-ink/10">
               <div className="flex-1 p-5">
                 <h3 className="font-[family-name:var(--font-display)] text-xl uppercase text-ink">
                   {ticket.eventId?.title || 'Event no longer available'}

@@ -29,15 +29,15 @@ function Login() {
   const labelClass = "block font-[family-name:var(--font-ticket)] text-[10px] uppercase tracking-widest text-ink/50 mb-1";
 
   return (
-    <div className="min-h-screen bg-paper font-[family-name:var(--font-body)]">
+    <div className="site-page min-h-screen bg-paper font-[family-name:var(--font-body)]">
       <Navbar />
       <div className="flex justify-center px-6 py-16">
-        <div dir="ltr" className="relative ticket-notch bg-card rounded-lg shadow-md flex overflow-hidden border border-ink/10 w-full max-w-md">
+        <div dir="ltr" className="relative ticket-notch glass-panel bg-card rounded-lg shadow-md flex overflow-hidden border border-ink/10 w-full max-w-sm">
           <div className="flex-1 p-8">
             <span className="font-[family-name:var(--font-ticket)] text-[10px] text-maroon uppercase tracking-widest">{t.login.boxOffice}</span>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl uppercase text-ink mb-6">{t.login.title}</h2>
+            <h2 className="font-[family-name:var(--font-display)] text-3xl uppercase text-ink mb-4">{t.login.title}</h2>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3">
               <div>
                 <label className={labelClass}>{t.login.email}</label>
                 <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required className={inputClass} />
@@ -58,7 +58,7 @@ function Login() {
           </div>
 
           <div className="border-l-2 border-dashed border-ink/25" />
-          <div className="w-[70px] shrink-0 bg-mustard/10 flex items-center justify-center">
+          <div className="w-14 shrink-0 bg-mustard/10 flex items-center justify-center">
             <span className="font-[family-name:var(--font-ticket)] text-[9px] text-maroon font-bold [writing-mode:vertical-rl] rotate-180 tracking-widest">
               {t.login.entryPass}
             </span>
