@@ -5,7 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 import Navbar from '../components/Navbar';
 
 function MyTickets() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [tickets, setTickets] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -15,14 +15,16 @@ function MyTickets() {
       try {
         const res = await api.get('/tickets/my-tickets');
         setTickets(res.data);
-      } catch (err) {
-        setError('Failed to load your tickets');
+      } catch {
+        setError(t.myTickets.error);
       } finally {
         setLoading(false);
       }
     };
     fetchTickets();
-  }, []);
+  }, [t]);
+
+  const ticketStatusLabel = (status) => t.myTickets[status] || status;
 
   return (
     <div className="site-page min-h-screen bg-paper font-[family-name:var(--font-body)]">
@@ -41,10 +43,10 @@ function MyTickets() {
             <div key={ticket._id} dir="ltr" className="relative ticket-notch-sm glass-panel bg-card rounded-lg shadow-sm flex overflow-hidden border border-ink/10">
               <div className="flex-1 p-5">
                 <h3 className="font-[family-name:var(--font-display)] text-xl uppercase text-ink">
-                  {ticket.eventId?.title || 'Event no longer available'}
+                  {ticket.eventId?.title || t.myTickets.eventMissing}
                 </h3>
                 <p className="font-[family-name:var(--font-ticket)] text-xs text-ink/60 mt-1">
-                  {t.cities[ticket.eventId?.location] || ticket.eventId?.location} — {ticket.eventId ? new Date(ticket.eventId.date).toLocaleDateString() : '-'}
+                  {ticket.eventId ? `${t.cities[ticket.eventId.location] || ticket.eventId.location} — ${new Intl.DateTimeFormat(lang === 'ar' ? 'ar' : 'en').format(new Date(ticket.eventId.date))}` : '-'}
                 </p>
                 <p className="font-[family-name:var(--font-ticket)] text-[10px] text-ink/40 mt-2 break-all">
                   {t.myTickets.code}: {ticket.qrCode}
@@ -56,7 +58,7 @@ function MyTickets() {
                   className={`font-[family-name:'Space_Mono',monospace] text-[10px] font-bold uppercase tracking-widest ${ticket.status === 'valid' ? 'text-teal' : 'text-ink/40'}`}
                   style={{ writingMode: 'vertical-rl' }}
                 >
-                  {ticket.status}
+                  {ticketStatusLabel(ticket.status)}
                 </span>
               </div>
             </div>

@@ -24,7 +24,7 @@ function EventCard({ event }) {
       setQrCodeImage(res.data.qrCodeImage);
       setMessage(t.event.bookedSuccess);
     } catch (err) {
-      setMessage(err.response?.data?.message || 'Booking failed');
+      setMessage(err.response?.data?.message || t.event.bookingFailed);
     }
   };
 
@@ -33,17 +33,17 @@ function EventCard({ event }) {
       <div className="relative ticket-notch glass-panel bg-card rounded-lg shadow-md hover:shadow-xl hover:-rotate-1 transition-all duration-300 flex overflow-hidden border border-ink/10 flex-1">
         <div className="flex-1 p-4 flex flex-col min-w-0">
           <span className="self-start bg-mustard/20 text-maroon text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded mb-2 font-[family-name:var(--font-ticket)]">
-            {safeEvent.category || 'General'}
+            {safeEvent.category || t.event.general}
           </span>
 
           <h3 className="font-[family-name:var(--font-display)] text-xl uppercase text-ink leading-tight mb-1 truncate">
-            {safeEvent.title || 'Untitled event'}
+            {safeEvent.title || t.event.untitledEvent}
           </h3>
-          <p className="text-sm text-ink/60 mb-3 line-clamp-2">{safeEvent.description || 'No description provided.'}</p>
+          <p className="text-sm text-ink/60 mb-3 line-clamp-2">{safeEvent.description || t.event.noDescription}</p>
 
           <div className="font-[family-name:var(--font-ticket)] text-xs text-ink/70 space-y-1 mb-3">
             <p>{t.event.loc} — {locationLabel}</p>
-            <p>{t.event.date} — {eventDate ? eventDate.toLocaleDateString() : 'TBA'}</p>
+            <p>{t.event.date} — {eventDate ? new Intl.DateTimeFormat(dir === 'rtl' ? 'ar' : 'en').format(eventDate) : t.event.toBeAnnounced}</p>
           </div>
 
           <div className="mt-auto">
@@ -60,7 +60,7 @@ function EventCard({ event }) {
 
         <div className="w-[72px] shrink-0 bg-mustard/10 flex flex-col items-center justify-between py-3">
           <span className="font-[family-name:'Space_Mono',monospace] text-[9px] text-maroon font-bold [writing-mode:vertical-rl] rotate-180 tracking-widest">
-            ADMIT ONE
+            {t.event.admitOne}
           </span>
           <span className="font-[family-name:var(--font-display)] text-xl text-ink">
             {safeEvent.ticketPrice ?? 0}
@@ -91,7 +91,7 @@ function EventCard({ event }) {
         <p className="text-xs mt-2 text-center font-bold text-teal">{message}</p>
       )}
       {qrCodeImage && (
-        <img src={qrCodeImage} alt="Ticket QR Code" className="w-28 mx-auto mt-2 rounded border border-ink/20" />
+        <img src={qrCodeImage} alt={t.event.qrCode} className="w-28 mx-auto mt-2 rounded border border-ink/20" />
       )}
     </div>
   );
